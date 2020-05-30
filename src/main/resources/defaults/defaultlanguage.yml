@@ -1,0 +1,72 @@
+# %n => Normal | %e => Error | %b => Bold | %name => name (Not required)
+Messages:
+  Prefix: '&7[&5Lobby&7]'
+  Error: '&c'
+  Bold: '&e'
+  Normal: '&a'
+  Warp:
+    Error: '%eThere was an unknown error'
+    NotExists: '%eThe warp %b%name %edoes´nt exists'
+    Exists: '%eThe warp %b%name %ealready exists'
+    Create: '%nThe warp %b%name %nwas created successfully'
+    Delete: '%nYou deleted the warp %b%name'
+  CommandListener:
+    Unknown: '%eUnknown CommandListener: %b%command'
+  Silentlobby:
+    Leave: '%nYou left the &5Silentlobby'
+    Join: '%nYou joined the &5Silentlobby'
+    Error: '%eThis Feature is for &5Youtubers %eonly'
+  Changes:
+    Loaded: '%nConfig changes were loaded'
+    Error: '%eThere was an error loading config changes'
+  Command:
+    Unknown: '%eThe command %b%command %ecan´t be found'
+Stats:
+  Loading: '&cYour stats are loading'
+  Loaded: '&aYour stats are loaded'
+  Error: '&cError while loading your stats'
+Tablist:
+  Header: '&cHallo ich bin der Header'
+  Footer: '&cHallo ich bin der Footer'
+Settings:
+  InventoryName: '&6Settings'
+  Vanisher:
+    Name: '&6Players'
+    Lore: '&7Decide who will be &evisible &7for you'
+    All:
+      Name: '&aEveryone'
+      Lore: '&8» &aEveryone &7is visible for you'
+    Premium:
+      Name: '&7Only &6Premiums'
+      Lore: '&8» &7Only &6Premiums &7are visible for you'
+    Youtuber:
+      Name: '&7Only &5Youtubers'
+      Lore: '&8» &7Only &5Youtubers &7are visible for you'
+    None:
+      Name: '&cNobody'
+      Lore: '&8» &cNobody &7is visible for you'
+  Shield:
+    Name: '&5Shield'
+    Lore: '&7Decide who can &edraw closer'
+    Active:
+      Name: '&aOn'
+      Lore: '&8» &cNobody &7can draw closer'
+    Premium:
+      Name: '&6Premiums'
+      Lore: '&8» &7Only &6Premiums &7can draw closer'
+    Youtuber:
+      Name: '&5Youtubers'
+      Lore: '&8» &7Only &5Youtubers &7can draw closer'
+    Inactive:
+      Name: '&cOff'
+      Lore: '&8» &aEveryone &7can draw closer'
+Shop:
+  InventoryName: '&6Shop'
+  Back: '&7Back'
+  Remove: '&cRemove'
+  Particles:
+    Activated: '&7The particle &e%name &7was &8[&aactivated&8]'
+    Deactivated: '&7Your particle was &8[&cdeactivated&8]'
+  Heads:
+    Activated: '&7The head &e%name &7was &8[&aactivated&8]'
+    Deactivated: '&7Your had was &8[&cremoved&8]'

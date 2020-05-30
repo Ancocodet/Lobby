@@ -1,0 +1,90 @@
+Particles:
+  ItemName: '&7All &5Particles'
+  InventoryName: '&5Particles'
+  Lava:
+    Name: '&aLava'
+    Price: 150
+  Shovel:
+    Name: '&aShovel'
+    Price: 150
+  Slime:
+    Name: '&aSlime'
+    Price: 150
+  Water:
+    Name: '&aWater'
+    Price: 150
+  Portal:
+    Name: '&aPortal'
+    Price: 150
+  Enchantment:
+    Name: '&aEnchantment'
+    Price: 150
+  Spell:
+    Name: '&aSpell'
+    Price: 150
+  Snowball:
+    Name: '&aSnowball'
+    Price: 150
+  Hearts:
+    Name: '&aHearts'
+    Price: 150
+  Rage:
+    Name: '&aRage'
+    Price: 150
+  Happy:
+    Name: '&aHappy'
+    Price: 150
+  Explosion:
+    Name: '&aExplosion'
+    Price: 150
+  Music:
+    Name: '&aMusic'
+    Price: 150
+  Smoke:
+    Name: '&aSmoke'
+    Price: 150
+Heads:
+  ItemName: '&7All &eHeads'
+  InventoryName: '&eHeads'
+  Melon:
+    Name: '&aMelon'
+    Price: 150
+  Glas:
+    Name: Glas
+    Price: 150
+  Emerald:
+    Name: '&2Emerald'
+    Price: 150
+  Diamond:
+    Name: '&bDiamond'
+    Price: 150
+  Lapis:
+    Name: '&1Lapis'
+    Price: 150
+  Gold:
+    Name: '&eGold'
+    Price: 150
+  Hay:
+    Name: '&6Hay'
+    Price: 150
+  Ice:
+    Name: Ice
+    Price: 150
+  Obsidian:
+    Name: '&5Obsidian'
+    Price: 150
+  Sponge:
+    Name: '&eSponge'
+    Price: 150
+  Bookshelf:
+    Name: '&dBookshelf'
+    Price: 150
+  Prismarine:
+    Name: '&3Prismarine'
+    Price: 150
+  Endstone:
+    Name: '&7Endstone'
+    Price: 150
+  Gras:
+    Name: '&aGras'
+    Price: 150

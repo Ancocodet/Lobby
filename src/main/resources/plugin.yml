@@ -1,0 +1,14 @@
+name: Lobby
+author: Ancoplays
+version: @version@
+main: de.ancozockt.lobby.Main
+
+commands:
+  setwarp:
+  delwarp:
+  warp:
+  loadchanges:
+  setup:
+  addons:
+  lobby:
+    aliases: lb, hub

@@ -1,0 +1,48 @@
+Default:
+  Items:
+    Settings:
+      Name: '&6Settings'
+      Item: '369:0'
+      Position: 2
+      Enabled: true
+    Navigation:
+      Name: '&bNavigation'
+      Item: '347:0'
+      Position: 5
+      Enabled: true
+    Silentlobby:
+      Name: '&5Silentlobby'
+      Item: '46:0'
+      Position: 6
+      Enabled: false
+    Shop:
+      Name: '&6Extras'
+      Item: '54:0'
+      Position: 8
+      Enabled: true
+Extended:
+  Permissions:
+    - lobby.silentlobby
+    - lobby.admin
+    - lobby.youtuber
+  Items:
+    Settings:
+      Name: '&6Settings'
+      Item: '369:0'
+      Position: 2
+      Enabled: true
+    Navigation:
+      Name: '&bNavigation'
+      Item: '347:0'
+      Position: 4
+      Enabled: true
+    Silentlobby:
+      Name: '&5Silentlobby'
+      Item: '46:0'
+      Position: 6
+      Enabled: true
+    Shop:
+      Name: '&6Extras'
+      Item: '54:0'
+      Position: 8
+      Enabled: true
