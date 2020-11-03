@@ -34,14 +34,14 @@ public class Setup {
 			inv.setItem(21, Items.getInstance().getItem(351, 1, "§cInactive", 1, ""));
 		}
 		*/
-		if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("Updatecheck")){
+		if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.Updatecheck")){
 			inv.setItem(13, Items.getInstance().getItem(Material.REDSTONE_COMPARATOR, 1, 0, "§cUpdateCheck", "§8[§aEnabled§8]"));
 			inv.setItem(22, Items.getInstance().getItem(351, 10, "§aEnabled", 1, "§7» §cDisable"));
 		}else{
 			inv.setItem(13, Items.getInstance().getItem(Material.REDSTONE_COMPARATOR, 1, 0, "§cUpdateCheck", "§8[§cDisabled§8]"));
 			inv.setItem(22, Items.getInstance().getItem(351, 1, "§cDisabled", 1, "§7» §aEnable"));
 		}
-		if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("Tablist")){
+		if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("Extras.Tablist")){
 			inv.setItem(14, Items.getInstance().getItem(Material.SIGN, 1, 0, "§aTablist", "§8[§aEnabled§8]"));
 			inv.setItem(23, Items.getInstance().getItem(351, 10, "§aEnabled", 1, "§7» §cDisable"));
 		}else{

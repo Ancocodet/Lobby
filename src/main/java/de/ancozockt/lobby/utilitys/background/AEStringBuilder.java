@@ -9,7 +9,7 @@ public class AEStringBuilder {
 
         response = response.replace("&", "§");
 
-        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("ReplaceUmlauts")) {
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.ReplaceVowelMutations")) {
             response = response.replace("Oe", "Ö").replace("oe", "ö");
             response = response.replace("Ae", "Ä").replace("ae", "ä");
             response = response.replace("Ue", "Ü").replace("ue", "ü");

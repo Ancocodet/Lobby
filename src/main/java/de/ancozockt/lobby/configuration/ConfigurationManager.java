@@ -4,7 +4,6 @@ package de.ancozockt.lobby.configuration;
 import de.ancozockt.lobby.Main;
 import de.ancozockt.lobby.configuration.custom.AdvancedConfiguration;
 import de.ancozockt.lobby.database.mysql.LobbyDatabase;
-import de.ancozockt.lobby.utilitys.background.AEStringBuilder;
 import de.ancozockt.lobby.utilitys.enums.PluginState;
 import de.ancozockt.utility.api.version.ProductVersion;
 import de.ancozockt.utility.api.version.VersionCheck;
@@ -30,10 +29,10 @@ public class ConfigurationManager {
     public ConfigurationManager(){
         fileManager = new FileManager("plugins/Lobby");
 
-        configuration = new SimpleConfiguration(fileManager.getFile("config", FileType.YAML), new DefaultFileReader("defaultconfiguration.yml", fileManager).readAll());
-        language = new SimpleConfiguration(fileManager.getFile("languages", FileType.YAML), new DefaultFileReader("defaultlanguage.yml", fileManager).readAll());
-        shop = new AdvancedConfiguration(fileManager.getFile("shop", FileType.YAML), new DefaultFileReader("defaultshop.yml", fileManager).readAll());
-        hotbar = new SimpleConfiguration(fileManager.getFile("hotbar", FileType.YAML), new DefaultFileReader("defaulthotbar.yml", fileManager).readAll());
+        configuration = new SimpleConfiguration(fileManager.getFile("config", FileType.YAML), new DefaultFileReader("defaults/defaultconfiguration.yml", "defaultconfiguration.yml", fileManager).readAll());
+        language = new SimpleConfiguration(fileManager.getFile("languages", FileType.YAML), new DefaultFileReader("defaults/defaultlanguage.yml", "defaultlanguage.yml", fileManager).readAll());
+        shop = new AdvancedConfiguration(fileManager.getFile("shop", FileType.YAML), new DefaultFileReader("defaults/defaultshop.yml", "defaultshop.yml", fileManager).readAll());
+        hotbar = new SimpleConfiguration(fileManager.getFile("hotbar", FileType.YAML), new DefaultFileReader("defaults/defaulthotbar.yml", "defaulthotbar.yml", fileManager).readAll());
 
         fileManager.deleteTempFiles();
         load();

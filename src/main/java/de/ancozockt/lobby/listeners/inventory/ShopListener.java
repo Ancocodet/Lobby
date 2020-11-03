@@ -17,8 +17,8 @@ public class ShopListener implements Listener {
     @EventHandler
     public void onHeads(InventoryClickEvent event){
         Player player = (Player) event.getWhoClicked();
-        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
-                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord")
+                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("General.World"))){
             if(event.getClickedInventory()!=null
                     && event.getClickedInventory().getTitle().equalsIgnoreCase(AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getShop().getString("Heads.InventoryName")))) {
                 if(event.getCurrentItem() != null

@@ -22,8 +22,8 @@ public class HotbarSetupListener implements Listener {
     @EventHandler
     public void onHotbarSetup(InventoryClickEvent event){
         Player player = (Player) event.getWhoClicked();
-        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
-                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord")
+                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("General.World"))){
             if(event.getClickedInventory()!=null && event.getClickedInventory().getTitle().equalsIgnoreCase("§cSetUp §8| §5Hot")) {
                 if(event.getCurrentItem()!=null && event.getCurrentItem().hasItemMeta() && event.getCurrentItem().getItemMeta().hasDisplayName()) {
                     event.setCancelled(true);

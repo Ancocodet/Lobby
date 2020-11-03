@@ -22,6 +22,14 @@ public class DefaultFileReader {
         conf = YamlConfiguration.loadConfiguration(file);
     }
 
+    public DefaultFileReader(String filename, String tempFileName, FileManager manager){
+        this.builder = new DefaultBuilder();
+        this.filename = filename;
+
+        File file = builder.createTempFile(this.filename, tempFileName, manager);
+        conf = YamlConfiguration.loadConfiguration(file);
+    }
+
     public ArrayList<Object[]> readAll(){
         ArrayList<Object[]> values = new ArrayList<>();
 

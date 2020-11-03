@@ -20,8 +20,8 @@ public class InventoryListener implements Listener {
     @EventHandler
     public void onSettings(InventoryClickEvent event){
         Player player = (Player) event.getWhoClicked();
-        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
-                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord")
+                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("General.World"))){
             Configuration language = Main.getInstance().getConfigurationManager().getLanguage();
             if(event.getClickedInventory()!=null && event.getClickedInventory().getTitle().equalsIgnoreCase(AEStringBuilder.replaceDefaults(language.getString("Settings.InventoryName")))) {
                 if(event.getCurrentItem()!=null && event.getCurrentItem().hasItemMeta() && event.getCurrentItem().getItemMeta().hasDisplayName()){
@@ -65,8 +65,8 @@ public class InventoryListener implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
-                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord")
+                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("General.World"))){
             if(event.getClickedInventory() == player.getInventory()){
                 if(player.getGameMode() == GameMode.CREATIVE && player.isOp())
                     return;

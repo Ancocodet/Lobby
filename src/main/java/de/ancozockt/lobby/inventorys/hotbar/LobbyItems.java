@@ -11,11 +11,11 @@ import java.util.List;
 
 public class LobbyItems {
 
-    private ArrayList<LobbyItem> defaultVersion;
-    private ArrayList<LobbyItem> extendedVersion;
+    private final ArrayList<LobbyItem> defaultVersion;
+    private final ArrayList<LobbyItem> extendedVersion;
 
-    private HashMap<LobbyItemRole, LobbyItem> displayNamesExtended;
-    private HashMap<LobbyItemRole, LobbyItem> displayNamesDefault;
+    private final HashMap<LobbyItemRole, LobbyItem> displayNamesExtended;
+    private final HashMap<LobbyItemRole, LobbyItem> displayNamesDefault;
 
     private List<String> permissionsExtended;
 

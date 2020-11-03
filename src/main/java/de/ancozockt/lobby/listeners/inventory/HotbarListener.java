@@ -21,8 +21,8 @@ public class HotbarListener implements Listener {
     @EventHandler
     public void onHotbar(PlayerInteractEvent event){
         Player player = event.getPlayer();
-        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
-                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord")
+                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("General.World"))){
             if(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK){
                 if(event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getClickedBlock() != null){
                     if(event.getClickedBlock().getType() == Material.WORKBENCH
@@ -84,4 +84,5 @@ public class HotbarListener implements Listener {
             }
         }
     }
+
 }

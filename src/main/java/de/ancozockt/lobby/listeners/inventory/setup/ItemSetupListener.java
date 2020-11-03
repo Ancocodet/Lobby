@@ -18,8 +18,8 @@ public class ItemSetupListener implements Listener {
     @EventHandler
     public void onSetupItemEdit(InventoryClickEvent event){
         Player player = (Player) event.getWhoClicked();
-        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
-                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord")
+                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("General.World"))){
             if(event.getClickedInventory()!=null && event.getClickedInventory().getTitle().startsWith("§cSetUp §8| §a#")) {
                 if(event.getCurrentItem()!=null && event.getCurrentItem().hasItemMeta() && event.getCurrentItem().getItemMeta().hasDisplayName()) {
                     event.setCancelled(true);
@@ -127,8 +127,8 @@ public class ItemSetupListener implements Listener {
     @EventHandler
     public void onSetupItemPosition(InventoryClickEvent event){
         Player player = (Player) event.getWhoClicked();
-        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
-                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord")
+                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("General.World"))){
             if(event.getClickedInventory()!=null && event.getClickedInventory().getTitle().startsWith("§cSetUp §8| §c#")) {
                 if(event.getCurrentItem()!=null && event.getCurrentItem().hasItemMeta() && event.getCurrentItem().getItemMeta().hasDisplayName()) {
                     if(player.hasPermission("lobby.setup")) {

@@ -1,0 +1,21 @@
+General:
+  Updatecheck: false
+  World: 'world'
+  BungeeCord: true
+  ReplaceVowelMutations: false
+Extras:
+  Tablist: true
+  Addons: true
+  Shop: false
+Commands:
+  ConsoleCommands: false
+  DisabledCommands: 3
+  FalseCommands: 3
+MySQL:
+  CurrentVersion: -1
+  Enabled: false
+  Port: 3306
+  Host: 'localhost'
+  Database: 'database'
+  Username: 'root'
+  Password: 'password'

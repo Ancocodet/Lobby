@@ -23,7 +23,7 @@ public class CommandListener implements Listener {
                 Configuration configuration = Main.getInstance().getConfigurationManager().getConfiguration();
                 Configuration language = Main.getInstance().getConfigurationManager().getLanguage();
 
-                CommandBlock blockState = CommandBlock.getBlockByID(configuration.getInteger("FalseCommands"));
+                CommandBlock blockState = CommandBlock.getBlockByID(configuration.getInteger("Commands.FalseCommands"));
                 if(blockState.equals(CommandBlock.NO_BLOCK))
                     return;
                 if(blockState.equals(CommandBlock.ONLY_TEAM) && (player.hasPermission("lobby.team") || player.hasPermission("lobby.admin")))
@@ -34,8 +34,8 @@ public class CommandListener implements Listener {
                 HelpTopic topic = Bukkit.getServer().getHelpMap().getHelpTopic(msg);
                 if (topic == null) {
                     event.setCancelled(true);
-                    if (language.getString("Messages.CommandListener.Unknown") != null) {
-                        player.sendMessage(Main.getInstance().getStringManager().getPrefix() + language.getString("Messages.CommandListener.Unknown").replace("%command", event.getMessage().toLowerCase()).replace("%n", Main.getInstance().getStringManager().getNormal()));
+                    if (language.getString("Messages.Commands.Unknown") != null) {
+                        player.sendMessage(Main.getInstance().getStringManager().getPrefix() + language.getString("Messages.Commands.Unknown").replace("%command", event.getMessage().toLowerCase()).replace("%n", Main.getInstance().getStringManager().getNormal()));
                     }
                 }
             }
@@ -45,13 +45,13 @@ public class CommandListener implements Listener {
     @EventHandler
     public void onBlocked(PlayerCommandPreprocessEvent event){
         Player player = event.getPlayer();
-        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord")
                 || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
 
             Configuration configuration = Main.getInstance().getConfigurationManager().getConfiguration();
             Configuration language = Main.getInstance().getConfigurationManager().getLanguage();
 
-            CommandBlock blockState = CommandBlock.getBlockByID(configuration.getInteger("DisabledCommands"));
+            CommandBlock blockState = CommandBlock.getBlockByID(configuration.getInteger("Commands.DisabledCommands"));
             if(blockState.equals(CommandBlock.NO_BLOCK))
                 return;
             if(blockState.equals(CommandBlock.ONLY_TEAM) && (player.hasPermission("lobby.team") || player.hasPermission("lobby.admin")))
@@ -64,23 +64,23 @@ public class CommandListener implements Listener {
                     || command.startsWith("/pl")
                         || command.startsWith("/plugin")) {
                 event.setCancelled(true);
-                if(language.getString("Messages.CommandListener.Unknown") != null){
-                    player.sendMessage(Main.getInstance().getStringManager().getPrefix() + language.getString("Messages.CommandListener.Unknown").replace("%command", command).replace("%n", Main.getInstance().getStringManager().getNormal()));
+                if(language.getString("Messages.Commands.Unknown") != null){
+                    player.sendMessage(Main.getInstance().getStringManager().getPrefix() + language.getString("Messages.Commands.Unknown").replace("%command", command).replace("%n", Main.getInstance().getStringManager().getNormal()));
                 }
             }
             if(command.startsWith("/bukkit")
                     || command.startsWith("/help")
                         || command.startsWith("/?")) {
                 event.setCancelled(true);
-                if(language.getString("Messages.CommandListener.Unknown") != null){
-                    player.sendMessage(Main.getInstance().getStringManager().getPrefix() + language.getString("Messages.CommandListener.Unknown").replace("%command", command).replace("%n", Main.getInstance().getStringManager().getNormal()));
+                if(language.getString("Messages.Commands.Unknown") != null){
+                    player.sendMessage(Main.getInstance().getStringManager().getPrefix() + language.getString("Messages.Commands.Unknown").replace("%command", command).replace("%n", Main.getInstance().getStringManager().getNormal()));
                 }
             }
             if(command.startsWith("/me")
                     || command.startsWith("/tell")) {
                 event.setCancelled(true);
-                if(language.getString("Messages.CommandListener.Unknown") != null){
-                    player.sendMessage(Main.getInstance().getStringManager().getPrefix() + language.getString("Messages.CommandListener.Unknown").replace("%command", command).replace("%n", Main.getInstance().getStringManager().getNormal()));
+                if(language.getString("Messages.Commands.Unknown") != null){
+                    player.sendMessage(Main.getInstance().getStringManager().getPrefix() + language.getString("Messages.Commands.Unknown").replace("%command", command).replace("%n", Main.getInstance().getStringManager().getNormal()));
                 }
             }
         }

@@ -8,6 +8,6 @@ public class DefaultBuilderTest {
     @Test
     public void fileWillBeLoaded() {
         DefaultBuilder sut = new DefaultBuilder();
-        sut.createTempFile("defaultconfiguration.yml", "test.dat", new FileManager("test"));
+        sut.createTempFile("defaults/defaultconfiguration.yml", "test.dat", new FileManager("test"));
     }
 }

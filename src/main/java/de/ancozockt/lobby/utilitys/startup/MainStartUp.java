@@ -17,11 +17,13 @@ public class MainStartUp implements IStartUp {
     }
 
     private void printVersion(){
-        if(instance.getConfigurationManager().getConfiguration().getBoolean("Updatecheck")){
+        if(instance.getConfigurationManager().getConfiguration().getBoolean("General.Updatecheck")){
             if(instance.getConfigurationManager().isUptodate()){
                 System.out.println("Version: " + instance.getDescription().getVersion() + " [UP TO DATE]");
+                Main.getInstance().setUpToDate(true);
             }else{
                 System.out.println("Version: " + instance.getDescription().getVersion()  + " [OUTDATED: " + instance.getConfigurationManager().getUpdate() + "]");
+                Main.getInstance().setUpToDate(false);
             }
         }else{
             System.out.println("Version: " + instance.getDescription().getVersion());
@@ -50,13 +52,15 @@ public class MainStartUp implements IStartUp {
     }
 
     private void printAddons(){
-        AddonManager addonManager = instance.getAddonCore().getAddonManager();
-        if(addonManager.getAddons().length > 1){
-            System.out.println("Addons: " + addonManager.getAddons().length + " loaded addons");
-        }else if(addonManager.getAddons().length == 0){
-            System.out.println("Addons: no addons found");
-        }else{
-            System.out.println("Addons: " + addonManager.getAddons().length + " loaded addon");
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.Addons")) {
+            AddonManager addonManager = instance.getAddonCore().getAddonManager();
+            if (addonManager.getAddons().length > 1) {
+                System.out.println("Addons: " + addonManager.getAddons().length + " loaded addons");
+            } else if (addonManager.getAddons().length == 0) {
+                System.out.println("Addons: no addons found");
+            } else {
+                System.out.println("Addons: " + addonManager.getAddons().length + " loaded addon");
+            }
         }
     }
 

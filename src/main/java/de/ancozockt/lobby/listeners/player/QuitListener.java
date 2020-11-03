@@ -12,7 +12,7 @@ public class QuitListener implements Listener {
     @EventHandler
     public void onQuit(PlayerQuitEvent event){
         Player player = event.getPlayer();
-        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")){
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord")){
             event.setQuitMessage(null);
         }else{
             Main.getInstance().getPlayerManager().leaveLobby(player);

@@ -10,8 +10,8 @@ Messages:
     Exists: '%eThe warp %b%name %ealready exists'
     Create: '%nThe warp %b%name %nwas created successfully'
     Delete: '%nYou deleted the warp %b%name'
-  CommandListener:
-    Unknown: '%eUnknown CommandListener: %b%command'
+  Commands:
+    Unknown: '%eUnknown Command: %b%command'
   Silentlobby:
     Leave: '%nYou left the &5Silentlobby'
     Join: '%nYou joined the &5Silentlobby'
@@ -19,8 +19,6 @@ Messages:
   Changes:
     Loaded: '%nConfig changes were loaded'
     Error: '%eThere was an error loading config changes'
-  Command:
-    Unknown: '%eThe command %b%command %ecan´t be found'
 Stats:
   Loading: '&cYour stats are loading'
   Loaded: '&aYour stats are loaded'

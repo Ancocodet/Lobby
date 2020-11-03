@@ -42,7 +42,7 @@ public class HotbarSetup {
             inv.setItem(4, Items.getInstance().getItem(Material.BARRIER, 1, 0, "§7Change §ePosition", "§7Current: §e" + (seli.getPosition()+1) + ", §cChange in configurations!"));
         }
         inv.setItem(5, Items.getInstance().getItem(Material.SIGN, 1, 0, "§7Change §3Name", "§7Current: §e" + seli.getDisplayname()));
-        inv.setItem(6, Items.getInstance().getItem(Material.WORKBENCH, 1, 0, "§7Change §dItem", "§7Current: §e" + seli.getItemID() + "§7:" + seli.getShortID()));
+        inv.setItem(6, Items.getInstance().getItem(Material.WORKBENCH, 1, 0, "§7Change §dItem", "§7Current: §e" + seli.getItemID() + "§7:§e" + seli.getShortID()));
 
         /*
         Navigation Item

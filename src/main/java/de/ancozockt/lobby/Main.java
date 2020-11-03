@@ -47,27 +47,39 @@ public class Main extends JavaPlugin {
     }
 
     public void onEnable(){
-        configurationManager = new ConfigurationManager();
-
         playerManager = new PlayerManager();
+
+        loadConfigs();
+
+        new MainStartUp().startup();
+        new ListenerStartUp().startup();
+        new CommandStartUp().startup();
+
+    }
+
+    public void loadConfigs(){
+        configurationManager = new ConfigurationManager();
         nmsUtils = new NMSUtils(configurationManager.getShop(), Items.getInstance());
 
         lobbyItems = new LobbyItems();
         warpManager = new WarpManager();
         inventoryManager = new InventoryManager();
 
-
-        if(configurationManager.getConfiguration().getBoolean("Addons")){
+        if(configurationManager.getConfiguration().getBoolean("General.Addons")){
             addonCore = new AddonCore(this, new File("plugins/Lobby/Addons"), 0.1);
         }
 
-        new MainStartUp().startup();
-        new ListenerStartUp().startup();
-        new CommandStartUp().startup();
+        if(!configurationManager.getConfiguration().getBoolean("General.BungeeCord")){
+            lobbyManager = new LobbyManager();
+        }
     }
 
     public boolean isUpToDate() {
         return upToDate;
+    }
+
+    public void setUpToDate(boolean upToDate) {
+        this.upToDate = upToDate;
     }
 
     public ProductVersion getVersion() {

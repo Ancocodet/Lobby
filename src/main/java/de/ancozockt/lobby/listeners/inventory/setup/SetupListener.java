@@ -23,8 +23,8 @@ public class SetupListener implements Listener {
     @EventHandler
     public void onSetup(InventoryClickEvent event){
         Player player = (Player) event.getWhoClicked();
-        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
-                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
+        if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord")
+                || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("General.World"))){
             if(event.getClickedInventory()!=null && event.getClickedInventory().getTitle().equalsIgnoreCase("§cSetUp")) {
                 if(event.getCurrentItem()!=null && event.getCurrentItem().hasItemMeta() && event.getCurrentItem().getItemMeta().hasDisplayName()){
                     event.setCancelled(true);
@@ -55,16 +55,16 @@ public class SetupListener implements Listener {
 							}else */
                             if(event.getSlot() == 22){
                                 if(event.getCurrentItem().getDurability() == 10){
-                                    Main.getInstance().getConfigurationManager().getConfiguration().setValue("Updatecheck", false);
+                                    Main.getInstance().getConfigurationManager().getConfiguration().setValue("General.Updatecheck", false);
                                 }else{
-                                    Main.getInstance().getConfigurationManager().getConfiguration().setValue("Updatecheck", true);
+                                    Main.getInstance().getConfigurationManager().getConfiguration().setValue("General.Updatecheck", true);
                                 }
                                 Setup.openSetupSettings(player);
                             }else if(event.getSlot() == 23){
                                 if(event.getCurrentItem().getDurability() == 10){
-                                    Main.getInstance().getConfigurationManager().getConfiguration().setValue("Tablist", false);
+                                    Main.getInstance().getConfigurationManager().getConfiguration().setValue("Extras.Tablist", false);
                                 }else{
-                                    Main.getInstance().getConfigurationManager().getConfiguration().setValue("Tablist", true);
+                                    Main.getInstance().getConfigurationManager().getConfiguration().setValue("Extras.Tablist", true);
                                 }
                                 Setup.openSetupSettings(player);
                             }

@@ -1,5 +1,6 @@
 name: Lobby
-author: Ancoplays
+authors:
+  - Ancozockt
 version: @version@
 main: de.ancozockt.lobby.Main
 
