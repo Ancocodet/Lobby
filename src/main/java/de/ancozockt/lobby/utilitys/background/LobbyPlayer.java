@@ -22,7 +22,7 @@ public class LobbyPlayer {
         this.vanish = Vanish.ALL;
         this.shield = Shield.ALL;
 
-        shieldHandler = new ShieldHandler(player);
+        shieldHandler = new ShieldHandler(player, this);
     }
 
     public Player getPlayer() {

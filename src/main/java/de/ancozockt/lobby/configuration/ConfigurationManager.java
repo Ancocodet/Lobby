@@ -2,21 +2,24 @@ package de.ancozockt.lobby.configuration;
 
 
 import de.ancozockt.lobby.Main;
+import de.ancozockt.lobby.configuration.custom.AdvancedConfiguration;
 import de.ancozockt.lobby.database.mysql.LobbyDatabase;
+import de.ancozockt.lobby.utilitys.background.AEStringBuilder;
 import de.ancozockt.lobby.utilitys.enums.PluginState;
 import de.ancozockt.utility.api.version.ProductVersion;
 import de.ancozockt.utility.api.version.VersionCheck;
 import de.ancozockt.utility.configurations.defaults.SimpleConfiguration;
+import de.ancozockt.utility.configurations.interfaces.Configuration;
 import de.ancozockt.utility.database.AsyncMySQL;
 import de.ancozockt.utility.database.FileManager;
 import de.ancozockt.utility.database.FileType;
 
 public class ConfigurationManager {
 
-    private SimpleConfiguration configuration;
-    private SimpleConfiguration language;
-    private SimpleConfiguration shop;
-    private SimpleConfiguration hotbar;
+    private Configuration configuration;
+    private Configuration language;
+    private Configuration shop;
+    private Configuration hotbar;
 
     private FileManager fileManager;
 
@@ -29,7 +32,7 @@ public class ConfigurationManager {
 
         configuration = new SimpleConfiguration(fileManager.getFile("config", FileType.YAML), new DefaultFileReader("defaultconfiguration.yml", fileManager).readAll());
         language = new SimpleConfiguration(fileManager.getFile("languages", FileType.YAML), new DefaultFileReader("defaultlanguage.yml", fileManager).readAll());
-        shop = new SimpleConfiguration(fileManager.getFile("shop", FileType.YAML), new DefaultFileReader("defaultshop.yml", fileManager).readAll());
+        shop = new AdvancedConfiguration(fileManager.getFile("shop", FileType.YAML), new DefaultFileReader("defaultshop.yml", fileManager).readAll());
         hotbar = new SimpleConfiguration(fileManager.getFile("hotbar", FileType.YAML), new DefaultFileReader("defaulthotbar.yml", fileManager).readAll());
 
         fileManager.deleteTempFiles();
@@ -41,10 +44,9 @@ public class ConfigurationManager {
             state = PluginState.NO_WORLD;
         }else{
             if(configuration.getBoolean("Updatecheck")){
-                ProductVersion serverVersion = VersionCheck.getCurrentVersion(1);
+                ProductVersion serverVersion = VersionCheck.getCurrentVersion(1, "n3riff2VWc");
                 if(serverVersion != null){
                     ProductVersion currentVersion = new ProductVersion(Main.getInstance().getDescription().getVersion());
-
                     if(serverVersion.getStable() > currentVersion.getStable()){
                         uptodate = false;
                         update = serverVersion.getStable() + "." + serverVersion.getBeta() + "." + serverVersion.getFix();
@@ -70,28 +72,40 @@ public class ConfigurationManager {
 
             StringManager stringManager = Main.getInstance().getStringManager();
 
-            stringManager.setPrefix(language.getString("Messages.Prefix") + " ");
-            stringManager.setError(language.getString("Messages.Error"));
-            stringManager.setBold(language.getString("Messages.Bold"));
-            stringManager.setNormal(language.getString("Messages.Normal"));
+            stringManager.setPrefix(language.getString("Messages.Prefix").replace("&", "§")+ " ");
+            stringManager.setError(language.getString("Messages.Error").replace("&", "§"));
+            stringManager.setBold(language.getString("Messages.Bold").replace("&", "§"));
+            stringManager.setNormal(language.getString("Messages.Normal").replace("&", "§"));
 
             state = PluginState.ENABLED;
         }
     }
 
-    public SimpleConfiguration getConfiguration() {
+    public Configuration getConfiguration() {
         return configuration;
     }
 
-    public SimpleConfiguration getHotbar() {
+    public Configuration getHotbar() {
         return hotbar;
     }
 
-    public SimpleConfiguration getLanguage() {
+    public Configuration getLanguage() {
         return language;
     }
 
-    public SimpleConfiguration getShop() {
+    public Configuration getShop() {
         return shop;
+    }
+
+    public PluginState getState() {
+        return state;
+    }
+
+    public String getUpdate() {
+        return update;
+    }
+
+    public boolean isUptodate() {
+        return uptodate;
     }
 }

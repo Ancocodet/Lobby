@@ -124,7 +124,7 @@ public class LobbyItems {
             String displayname = AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getHotbar().getString("Default.Items."+itemName+".Name"));
             String item = Main.getInstance().getConfigurationManager().getHotbar().getString("Default.Items."+itemName+".Item");
 
-            int position = Main.getInstance().getConfigurationManager().getHotbar().getInteger("Default.Items."+itemName+".Position")-1;
+            int position = Main.getInstance().getConfigurationManager().getHotbar().getInteger("Default.Items."+itemName+".Position") - 1;
             boolean enabled = Main.getInstance().getConfigurationManager().getHotbar().getBoolean("Default.Items."+itemName+".Enabled");
 
             if(position > 9){

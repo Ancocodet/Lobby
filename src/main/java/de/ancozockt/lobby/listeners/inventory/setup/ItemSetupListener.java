@@ -1,6 +1,7 @@
 package de.ancozockt.lobby.listeners.inventory.setup;
 
 import de.ancozockt.lobby.Main;
+import de.ancozockt.lobby.inventorys.navigation.NavConfig;
 import de.ancozockt.lobby.inventorys.navigation.Navigator;
 import de.ancozockt.lobby.inventorys.navigation.items.NavGameItem;
 import de.ancozockt.lobby.inventorys.navigation.items.NavItem;
@@ -28,7 +29,7 @@ public class ItemSetupListener implements Listener {
                                 NavItemSetup.tempIDs.remove(player);
                             }
                             int id = Integer.valueOf(event.getClickedInventory().getTitle().replace("§cSetUp §8| §a#", ""));
-                            Navigator navigator = Main.getInstance().getInventoryManager().getNavigator();
+                            NavConfig navigator = Main.getInstance().getInventoryManager().getNavConfig();
                             if (navigator.getGames().containsKey(id)) {
                                 NavGameItem gameItem = navigator.getGames().get(id);
                                 NavItemSetup.openSetup(player, gameItem, gameItem.getPosition());
@@ -42,7 +43,7 @@ public class ItemSetupListener implements Listener {
                             if (NavItemSetup.tempIDs.containsKey(player)) {
                                 Integer[] tempID = NavItemSetup.tempIDs.get(player);
                                 int id = Integer.valueOf(event.getClickedInventory().getTitle().replace("§cSetUp §8| §a#", ""));
-                                Navigator navigator = Main.getInstance().getInventoryManager().getNavigator();
+                                NavConfig navigator = Main.getInstance().getInventoryManager().getNavConfig();
                                 if (navigator.getGames().containsKey(id)) {
                                     NavGameItem gameItem = navigator.getGames().get(id);
                                     gameItem.setItemid(tempID[0]);
@@ -56,7 +57,7 @@ public class ItemSetupListener implements Listener {
                                     Main.getInstance().getInventoryManager().getNavConfig().changeItemID(gameItem.getName(), itemID);
 
                                     navigator.getGames().put(id, gameItem);
-                                    navigator.createNavigator();
+                                    Main.getInstance().getInventoryManager().getNavigator().createNavigator();
 
                                     NavItemSetup.tempIDs.remove(player);
                                     NavItemSetup.openSetup(player, gameItem, gameItem.getPosition());
@@ -73,7 +74,7 @@ public class ItemSetupListener implements Listener {
                                     Main.getInstance().getInventoryManager().getNavConfig().changeItemID(navItem.getName(), itemID);
 
                                     navigator.getItems().put(id, navItem);
-                                    navigator.createNavigator();
+                                    Main.getInstance().getInventoryManager().getNavigator().createNavigator();
 
                                     NavItemSetup.tempIDs.remove(player);
                                     NavItemSetup.openSetup(player, navItem, navItem.getPosition());
@@ -135,7 +136,7 @@ public class ItemSetupListener implements Listener {
                             event.setCancelled(true);
                         } else if (event.isRightClick()) {
                             int id = Integer.valueOf(event.getClickedInventory().getTitle().replace("§cSetUp §8| §c#", ""));
-                            Navigator navigator = Main.getInstance().getInventoryManager().getNavigator();
+                            NavConfig navigator = Main.getInstance().getInventoryManager().getNavConfig();
                             if (navigator.getGames().containsKey(id)) {
                                 NavGameItem gameItem = navigator.getGames().get(id);
                                 gameItem.setPosition(event.getSlot());
@@ -144,7 +145,7 @@ public class ItemSetupListener implements Listener {
 
                                 navigator.getGames().remove(id);
                                 navigator.getGames().put(event.getSlot(), gameItem);
-                                navigator.createNavigator();
+                                Main.getInstance().getInventoryManager().getNavigator().createNavigator();
 
                                 player.closeInventory();
                                 Main.getInstance().getNmsHandler().getChatapi().sendActionbar(player, "§7Position §asaved");
@@ -156,7 +157,7 @@ public class ItemSetupListener implements Listener {
 
                                 navigator.getItems().remove(id);
                                 navigator.getItems().put(event.getSlot(), navItem);
-                                navigator.createNavigator();
+                                Main.getInstance().getInventoryManager().getNavigator().createNavigator();
 
                                 player.closeInventory();
                                 Main.getInstance().getNmsHandler().getChatapi().sendActionbar(player, "§7Position §asaved");

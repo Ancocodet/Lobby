@@ -45,7 +45,7 @@ public class JoinListener implements Listener {
                     player.sendMessage(stringManager.getPrefix() + stringManager.getError() + "There is an " + stringManager.getBold() + "new" + stringManager.getError() + " update available");
                 }else if(Main.getInstance().getWarpManager().getWarp("spawn") == null){
                     StringManager stringManager = Main.getInstance().getStringManager();
-                    player.sendMessage(stringManager.getPrefix() + stringManager.getError() + "You have to create a spawnpoint('spawn' warp) for the best experience\"");
+                    player.sendMessage(stringManager.getPrefix() + stringManager.getError() + "You have to create a spawnpoint('spawn' warp) for the best experience");
                 }
             }
 
@@ -54,7 +54,6 @@ public class JoinListener implements Listener {
             if(configuration.getBoolean("MySQL.Enabled")){
                 LoadDatabase.load(player);
             }else{
-                Main.getInstance().getPlayerManager().initPlayer(player);
                 LobbyPlayer lobbyPlayer = Main.getInstance().getPlayerManager().getLobbyPlayer(player);
 
                 lobbyPlayer.setShield(Shield.NONE);

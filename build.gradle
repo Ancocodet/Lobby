@@ -9,7 +9,6 @@ version '1.4.5'
 sourceCompatibility = 1.8
 compileJava.options.encoding = 'UTF-8'
 
-
 repositories {
     mavenCentral()
     maven {
@@ -19,9 +18,15 @@ repositories {
 }
 
 dependencies {
-    compile "de.ancozockt:aeutility:0.3.7"
+    compile "de.ancozockt:aeutility:0.4.6"
     compile "de.ancozockt:aenmsutility:0.0.3"
+
     compileOnly fileTree(include: ['*jar'], dir: 'libs')
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+
+    testCompileOnly 'junit:junit:4.12'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.3.1'
+
 }
 
 jar {

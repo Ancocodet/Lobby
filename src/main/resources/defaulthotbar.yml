@@ -22,9 +22,9 @@ Default:
       Enabled: true
 Extended:
   Permissions:
-    - lobby.silentlobby
-    - lobby.admin
-    - lobby.youtuber
+    - 'lobby.silentlobby'
+    - 'lobby.admin'
+    - 'lobby.youtuber'
   Items:
     Settings:
       Name: '&6Settings'

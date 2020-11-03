@@ -1,6 +1,7 @@
 package de.ancozockt.lobby.inventorys.shop;
 
 import de.ancozockt.aenmsutility.NMSUtils;
+import de.ancozockt.lobby.Main;
 import de.ancozockt.lobby.utilitys.background.AEStringBuilder;
 import de.ancozockt.lobby.utilitys.view.Items;
 import de.ancozockt.utility.configurations.interfaces.Configuration;
@@ -21,12 +22,12 @@ public class Gadgets {
 	}
 
 	public void openGadgetsMenu(Player p){
-		Inventory inv = Bukkit.createInventory(null, 3*9, configuration.getString("Shop.InventoryName"));
+		Inventory inv = Bukkit.createInventory(null, 3*9, AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getLanguage().getString("Shop.InventoryName")));
 
-		inv.setItem(10, Items.getInstance().getItem(Material.ENCHANTMENT_TABLE, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Particles.ItemName")), ""));
+		inv.setItem(10, Items.getInstance().getItem(Material.ENCHANTMENT_TABLE, 1, 0, configuration.getString("Particles.ItemName"), ""));
 		inv.setItem(12, Items.getInstance().getItem(Material.ARMOR_STAND, 1, 0, "§cComing Soon", ""));
 		inv.setItem(14, Items.getInstance().getItem(383, 90, "§cComing Soon", 1, ""));
-		inv.setItem(16, Items.getInstance().getItem(Material.IRON_HELMET, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.ItemName")), ""));
+		inv.setItem(16, Items.getInstance().getItem(Material.IRON_HELMET, 1, 0, configuration.getString("Heads.ItemName"), ""));
 
 		p.openInventory(inv);
 	}
@@ -66,8 +67,8 @@ public class Gadgets {
 		inv.setItem(24, pat13);
 		inv.setItem(25, pat14);
 
-		inv.setItem(37, Items.getInstance().getSkull(AEStringBuilder.replaceDefaults(configuration.getString("Shop.Back")), "", "http://textures.minecraft.net/texture/bb0f6e8af46ac6faf88914191ab66f261d6726a7999c637cf2e4159fe1fc477", false));
-		inv.setItem(40, Items.getInstance().getItem(Material.BARRIER, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Shop.Remove")), ""));
+		inv.setItem(37, Items.getInstance().getSkull(AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getLanguage().getString("Shop.Back")), "", "http://textures.minecraft.net/texture/bb0f6e8af46ac6faf88914191ab66f261d6726a7999c637cf2e4159fe1fc477", false));
+		inv.setItem(40, Items.getInstance().getItem(Material.BARRIER, 1, 0, AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getLanguage().getString("Shop.Remove")), ""));
 
 		p.openInventory(inv);
 	}
@@ -75,24 +76,24 @@ public class Gadgets {
 	public void openHeadsMenu(Player p){
 		Inventory inv = Bukkit.createInventory(p, 9*6, configuration.getString("Heads.InventoryName"));
 
-		inv.setItem(10, Items.getInstance().getItem(Material.MELON_BLOCK, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Melon.Name")), ""));
-		inv.setItem(11, Items.getInstance().getItem(Material.GLASS, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Glas.Name")), ""));
-		inv.setItem(12, Items.getInstance().getItem(Material.EMERALD_BLOCK, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Emerald.Name")), ""));
-		inv.setItem(13, Items.getInstance().getItem(Material.DIAMOND_BLOCK, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Diamond.Name")), ""));
-		inv.setItem(14, Items.getInstance().getItem(Material.LAPIS_BLOCK, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Lapis.Name")), ""));
-		inv.setItem(15, Items.getInstance().getItem(Material.GOLD_BLOCK, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Gold.Name")), ""));
-		inv.setItem(16, Items.getInstance().getItem(Material.HAY_BLOCK, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Hay.Name")), ""));
+		inv.setItem(10, Items.getInstance().getItem(Material.MELON_BLOCK, 1, 0, configuration.getString("Heads.Melon.Name"), ""));
+		inv.setItem(11, Items.getInstance().getItem(Material.GLASS, 1, 0, configuration.getString("Heads.Glas.Name"), ""));
+		inv.setItem(12, Items.getInstance().getItem(Material.EMERALD_BLOCK, 1, 0, configuration.getString("Heads.Emerald.Name"), ""));
+		inv.setItem(13, Items.getInstance().getItem(Material.DIAMOND_BLOCK, 1, 0, configuration.getString("Heads.Diamond.Name"), ""));
+		inv.setItem(14, Items.getInstance().getItem(Material.LAPIS_BLOCK, 1, 0, configuration.getString("Heads.Lapis.Name"), ""));
+		inv.setItem(15, Items.getInstance().getItem(Material.GOLD_BLOCK, 1, 0, configuration.getString("Heads.Gold.Name"), ""));
+		inv.setItem(16, Items.getInstance().getItem(Material.HAY_BLOCK, 1, 0, configuration.getString("Heads.Hay.Name"), ""));
 
-		inv.setItem(19, Items.getInstance().getItem(Material.ICE, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Ice.Name")), ""));
-		inv.setItem(20, Items.getInstance().getItem(Material.OBSIDIAN, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Obsidian.Name")), ""));
-		inv.setItem(21, Items.getInstance().getItem(Material.SPONGE, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Sponge.Name")), ""));
-		inv.setItem(22, Items.getInstance().getItem(Material.BOOKSHELF, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Bookshelf.Name")), ""));
-		inv.setItem(23, Items.getInstance().getItem(Material.PRISMARINE, 1, 2, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Prismarine.Name")), ""));
-		inv.setItem(24, Items.getInstance().getItem(Material.ENDER_STONE, 1, 2, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Endstone.Name")), ""));
-		inv.setItem(25, Items.getInstance().getItem(Material.GRASS, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Heads.Gras.Name")), ""));
+		inv.setItem(19, Items.getInstance().getItem(Material.ICE, 1, 0, configuration.getString("Heads.Ice.Name"), ""));
+		inv.setItem(20, Items.getInstance().getItem(Material.OBSIDIAN, 1, 0, configuration.getString("Heads.Obsidian.Name"), ""));
+		inv.setItem(21, Items.getInstance().getItem(Material.SPONGE, 1, 0, configuration.getString("Heads.Sponge.Name"), ""));
+		inv.setItem(22, Items.getInstance().getItem(Material.BOOKSHELF, 1, 0, configuration.getString("Heads.Bookshelf.Name"), ""));
+		inv.setItem(23, Items.getInstance().getItem(Material.PRISMARINE, 1, 2, configuration.getString("Heads.Prismarine.Name"), ""));
+		inv.setItem(24, Items.getInstance().getItem(Material.ENDER_STONE, 1, 2, configuration.getString("Heads.Endstone.Name"), ""));
+		inv.setItem(25, Items.getInstance().getItem(Material.GRASS, 1, 0, configuration.getString("Heads.Gras.Name"), ""));
 
-		inv.setItem(37, Items.getInstance().getSkull(AEStringBuilder.replaceDefaults(configuration.getString("Shop.Back")), "", "http://textures.minecraft.net/texture/bb0f6e8af46ac6faf88914191ab66f261d6726a7999c637cf2e4159fe1fc477", false));
-		inv.setItem(40, Items.getInstance().getItem(Material.BARRIER, 1, 0, AEStringBuilder.replaceDefaults(configuration.getString("Shop.Remove")), ""));
+		inv.setItem(37, Items.getInstance().getSkull(AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getLanguage().getString("Shop.Back")), "", "http://textures.minecraft.net/texture/bb0f6e8af46ac6faf88914191ab66f261d6726a7999c637cf2e4159fe1fc477", false));
+		inv.setItem(40, Items.getInstance().getItem(Material.BARRIER, 1, 0, AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getLanguage().getString("Shop.Remove")), ""));
 
 		p.openInventory(inv);
 	}

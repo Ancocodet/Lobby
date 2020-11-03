@@ -1,7 +1,5 @@
 package de.ancozockt.lobby.configuration;
 
-
-import de.ancozockt.utility.configurations.DefaultBuilder;
 import de.ancozockt.utility.database.FileManager;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -18,7 +16,7 @@ public class DefaultFileReader {
 
     public DefaultFileReader(String filename, FileManager manager){
         this.builder = new DefaultBuilder();
-        this.filename = "/defaults/" + filename;
+        this.filename = filename;
 
         File file = builder.createTempFile(this.filename, filename, manager);
         conf = YamlConfiguration.loadConfiguration(file);

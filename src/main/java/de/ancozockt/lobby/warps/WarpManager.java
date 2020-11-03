@@ -29,14 +29,12 @@ public class WarpManager {
 		cfgwarps = YamlConfiguration.loadConfiguration(warps);
 
 		for(String name : cfgwarps.getConfigurationSection("").getKeys(false)){
-			
-			
-			World world = Bukkit.getWorld(cfgwarps.getString(name+".loc.world"));
-			double x = cfgwarps.getDouble(name+".loc.x");
-			double y = cfgwarps.getDouble(name+".loc.y");
-			double z = cfgwarps.getDouble(name+".loc.z");
-			double yaw = cfgwarps.getDouble(name+".loc.yaw");
-			double pitch = cfgwarps.getDouble(name+".loc.pitch");
+			World world = Bukkit.getWorld(cfgwarps.getString(name + ".loc.world"));
+			double x = cfgwarps.getDouble(name + ".loc.x");
+			double y = cfgwarps.getDouble(name + ".loc.y");
+			double z = cfgwarps.getDouble(name + ".loc.z");
+			double yaw = cfgwarps.getDouble(name + ".loc.yaw");
+			double pitch = cfgwarps.getDouble(name + ".loc.pitch");
 			Location loc = new Location(world, x, y, z, (float) yaw, (float) pitch);
 			
 			Warp warp = new Warp(name, loc);

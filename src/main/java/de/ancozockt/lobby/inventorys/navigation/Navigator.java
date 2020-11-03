@@ -15,9 +15,6 @@ import org.bukkit.inventory.Inventory;
 
 public class Navigator implements Listener{
 
-	private HashMap<Integer, NavGameItem> games = new HashMap<>();
-	private HashMap<Integer, NavItem> items = new HashMap<>();
-	
 	private Inventory navigator;
 
 	private NavConfig config;
@@ -29,11 +26,11 @@ public class Navigator implements Listener{
 	public void createNavigator(){
 		Inventory inv = Bukkit.createInventory(null, config.getRows() * 9, config.getTitle());
 		
-		for(NavItem item : items.values()){
+		for(NavItem item : config.getItems().values()){
 			inv.setItem(item.getPosition(), item.getItem());
 		}
 		
-		for(NavGameItem item : games.values()){
+		for(NavGameItem item : config.getGames().values()){
 			inv.setItem(item.getPosition(), item.getItem());
 		}
 		
@@ -49,14 +46,6 @@ public class Navigator implements Listener{
 		}
 	}
 
-	public HashMap<Integer, NavGameItem> getGames() {
-		return games;
-	}
-
-	public HashMap<Integer, NavItem> getItems() {
-		return items;
-	}
-
 	@EventHandler
 	public void onNav(InventoryClickEvent e){
 		Player p = (Player) e.getWhoClicked();
@@ -64,8 +53,8 @@ public class Navigator implements Listener{
 			if(e.getCurrentItem() != null && e.getCurrentItem().hasItemMeta() && e.getCurrentItem().getItemMeta().hasDisplayName()){
 				e.setCancelled(true);
 				int position = e.getSlot();
-				if(games.containsKey(position)){
-					String warp = games.get(position).getWarp();
+				if(config.getGames().containsKey(position)){
+					String warp = config.getGames().get(position).getWarp();
 					p.closeInventory();
 					Main.getInstance().getWarpManager().teleportWarp(p, warp);
 				}

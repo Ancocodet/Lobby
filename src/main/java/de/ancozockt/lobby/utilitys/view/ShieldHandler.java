@@ -20,11 +20,16 @@ public class ShieldHandler {
     private Player player;
     private LobbyPlayer lobbyPlayer;
 
+    public ShieldHandler(Player player, LobbyPlayer lobbyPlayer){
+        this.player = player;
+        this.lobbyPlayer = lobbyPlayer;
+
+        createRunnable();
+    }
+
     public ShieldHandler(Player player){
         this.player = player;
         this.lobbyPlayer = Main.getInstance().getPlayerManager().getLobbyPlayer(player);
-
-        createRunnable();
     }
 
     public boolean isRunning() {
@@ -85,6 +90,7 @@ public class ShieldHandler {
 
     public void startRunnable(){
         if(!running) {
+            createRunnable();
             runnable.runTaskTimer(Main.getInstance(), 0L, 2L);
             running = true;
         }

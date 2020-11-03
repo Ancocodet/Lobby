@@ -1,0 +1,18 @@
+Title: '&bNavigator'
+Rows: 5
+Items:
+  Game:
+    Position: 23
+    Item: '1:0'
+    DisplayName: "&eExample &7Game"
+    Lore: ''
+    Warp: 'examplegame'
+    Type: 'Game'
+  Glasplatte1:
+    Position: 22
+    Item: '160:5'
+    Type: 'Item'
+  Glasplatte2:
+    Position: 24
+    Item: '160:5'
+    Type: 'Item'

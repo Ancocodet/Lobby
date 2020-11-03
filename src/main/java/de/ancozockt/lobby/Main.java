@@ -6,13 +6,14 @@ import de.ancozockt.lobby.configuration.StringManager;
 import de.ancozockt.lobby.inventorys.hotbar.LobbyItems;
 import de.ancozockt.lobby.inventorys.InventoryManager;
 import de.ancozockt.lobby.utilitys.background.LobbyManager;
-import de.ancozockt.lobby.utilitys.enums.PluginState;
+import de.ancozockt.lobby.utilitys.startup.CommandStartUp;
+import de.ancozockt.lobby.utilitys.startup.ListenerStartUp;
 import de.ancozockt.lobby.utilitys.view.Items;
 import de.ancozockt.lobby.utilitys.background.PlayerManager;
+import de.ancozockt.lobby.utilitys.startup.MainStartUp;
 import de.ancozockt.lobby.warps.WarpManager;
 import de.ancozockt.utility.addons.AddonCore;
 import de.ancozockt.utility.api.version.ProductVersion;
-import de.ancozockt.utility.api.version.VersionCheck;
 import de.ancozockt.utility.database.AsyncMySQL;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -41,25 +42,28 @@ public class Main extends JavaPlugin {
 
     public void onLoad(){
         pl = this;
-
         new Items();
-
-        configurationManager = new ConfigurationManager();
         stringManager = new StringManager();
+    }
+
+    public void onEnable(){
+        configurationManager = new ConfigurationManager();
 
         playerManager = new PlayerManager();
+        nmsUtils = new NMSUtils(configurationManager.getShop(), Items.getInstance());
 
         lobbyItems = new LobbyItems();
         warpManager = new WarpManager();
         inventoryManager = new InventoryManager();
 
-        nmsUtils = new NMSUtils(configurationManager.getShop(), Items.getInstance());
-    }
 
-    public void onEnable(){
         if(configurationManager.getConfiguration().getBoolean("Addons")){
-            addonCore = new AddonCore(this, new File("plugins/Lobby/Addons"));
+            addonCore = new AddonCore(this, new File("plugins/Lobby/Addons"), 0.1);
         }
+
+        new MainStartUp().startup();
+        new ListenerStartUp().startup();
+        new CommandStartUp().startup();
     }
 
     public boolean isUpToDate() {

@@ -2,8 +2,10 @@ package de.ancozockt.lobby.inventorys.navigation;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 
 import de.ancozockt.lobby.Main;
+import de.ancozockt.lobby.configuration.DefaultBuilder;
 import de.ancozockt.lobby.inventorys.navigation.items.NavGameItem;
 import de.ancozockt.lobby.inventorys.navigation.items.NavItem;
 import de.ancozockt.lobby.inventorys.navigation.items.NavItemType;
@@ -21,17 +23,27 @@ public class NavConfig {
 	private static File navigator;
 	private static FileConfiguration cfgnavi;
 
+	private HashMap<Integer, NavGameItem> games = new HashMap<>();
+	private HashMap<Integer, NavItem> items = new HashMap<>();
+
 	public NavConfig(){
 		FileManager fileManager = new FileManager("plugins/Lobby");
 
 		navigator = fileManager.getFile("navigator", FileType.YAML);
+		if(!navigator.exists()){
+			new DefaultBuilder().copyTemplate("defaults/defaultnavigator.yml", navigator);
+		}
+
+		navigator = fileManager.getFile("navigator", FileType.YAML);
 		cfgnavi = YamlConfiguration.loadConfiguration(navigator);
+
+		read();
 	}
 
 	public void changePosition(String item, int position){
 		FileConfiguration cfg = cfgnavi;
 
-		cfg.set("Items."+item+".Position", position);
+		cfg.set("Items." + item + ".Position", position);
 
 		try {
 			cfg.save(navigator);
@@ -41,7 +53,7 @@ public class NavConfig {
 	public void changeItemID(String item, String itemID){
 		FileConfiguration cfg = cfgnavi;
 
-		cfg.set("Items."+item+".Item", itemID);
+		cfg.set("Items." + item + ".Item", itemID);
 
 		try {
 			cfg.save(navigator);
@@ -51,22 +63,22 @@ public class NavConfig {
 	public NavGameItem changeName(String item, int position, String display){
 		FileConfiguration cfg = cfgnavi;
 
-		cfg.set("Items."+item+".DisplayName", display.replace("&", "§"));
+		cfg.set("Items." + item + ".DisplayName", display.replace("&", "§"));
 
 		try {
 			Navigator nav = Main.getInstance().getInventoryManager().getNavigator();
 
 			cfg.save(navigator);
-			NavGameItem gameItem = nav.getGames().get(position);
+			NavGameItem gameItem = games.get(position);
 
 			gameItem.setDisplayname(display.replace("&", "§"));
 			gameItem.createItem();
 
-			nav.getGames().put(position, gameItem);
+			games.put(position, gameItem);
 
 			nav.createNavigator();
 
-			return nav.getGames().get(position);
+			return games.get(position);
 		} catch (IOException e) {
 			return null;
 		}
@@ -75,21 +87,21 @@ public class NavConfig {
 	public NavGameItem changeLore(String item, int position, String lore){
 		FileConfiguration cfg = cfgnavi;
 
-		cfg.set("Items."+item+".Lore", lore.replace("&", "§"));
+		cfg.set("Items." + item + ".Lore", lore.replace("&", "§"));
 
 		try {
 			Navigator nav = Main.getInstance().getInventoryManager().getNavigator();
 
 			cfg.save(navigator);
-			NavGameItem gameItem = nav.getGames().get(position);
+			NavGameItem gameItem = games.get(position);
 
 			gameItem.setLore(lore.replace("&", "§"));
 			gameItem.createItem();
 
-			nav.getGames().put(position, gameItem);
+			games.put(position, gameItem);
 			nav.createNavigator();
 
-			return nav.getGames().get(position);
+			return games.get(position);
 		} catch (IOException e) {
 			return null;
 		}
@@ -98,56 +110,23 @@ public class NavConfig {
 	public NavGameItem changeWarp(String item, int position, String warp){
 		FileConfiguration cfg = cfgnavi;
 
-		cfg.set("Items."+item+".Warp", warp);
+		cfg.set("Items." + item + ".Warp", warp);
 
 		try {
 			Navigator nav = Main.getInstance().getInventoryManager().getNavigator();
 
 			cfg.save(navigator);
-			NavGameItem gameItem = nav.getGames().get(position);
+			NavGameItem gameItem = games.get(position);
 
 			gameItem.setWarp(warp);
 
-			return nav.getGames().get(position);
+			return games.get(position);
 		} catch (IOException e) {
 			return null;
 		}
 	}
 
-	public void setDefaults(){
-		FileConfiguration cfg = cfgnavi;
-
-		cfg.options().copyDefaults(true);
-
-		cfg.addDefault("Title", "&bNavigator");
-		cfg.addDefault("Rows", 5);
-
-		if(!navigator.exists()){
-			cfg.set("Items.SuperJump.Position", 23);
-			cfg.set("Items.SuperJump.Item", "301");
-			cfg.set("Items.SuperJump.DisplayName", "&aSuperJump");
-			cfg.set("Items.SuperJump.Lore", "");
-			cfg.set("Items.SuperJump.Warp", "Superjump");
-			cfg.set("Items.SuperJump.Type", "Game");
-
-			cfg.set("Items.Glasplatte1.Position", 22);
-			cfg.set("Items.Glasplatte1.Item", "160:5");
-			cfg.set("Items.Glasplatte1.Type", "Item");
-
-			cfg.set("Items.Glasplatte2.Position", 24);
-			cfg.set("Items.Glasplatte2.Item", "160:5");
-			cfg.set("Items.Glasplatte2.Type", "Item");
-		}
-
-		try {
-			cfg.save(navigator);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
 	public void read(){
-		Navigator nav = Main.getInstance().getInventoryManager().getNavigator();
 		FileConfiguration cfg = cfgnavi;
 
 		Title = cfgnavi.getString("Title").replace("&", "§");
@@ -192,7 +171,7 @@ public class NavConfig {
 				String warp = cfg.getString("Items." + name + ".Warp");
 
 				NavGameItem gameitem = new NavGameItem(name, position, displayname, lore, warp, itemid, shortid);
-				nav.getGames().put(position, gameitem);
+				games.put(position, gameitem);
 			}else if(type == NavItemType.Item){
 
 				int position = cfg.getInt("Items." + name + ".Position");
@@ -224,7 +203,7 @@ public class NavConfig {
 				}
 
 				NavItem normalitem = new NavItem(name, position, itemid, shortid);
-				nav.getItems().put(position, normalitem);
+				items.put(position, normalitem);
 			}
 		}
 	}
@@ -236,5 +215,12 @@ public class NavConfig {
 	public int getRows() {
 		return Rows;
 	}
-	
+
+	public HashMap<Integer, NavGameItem> getGames() {
+		return games;
+	}
+
+	public HashMap<Integer, NavItem> getItems() {
+		return items;
+	}
 }

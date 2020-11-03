@@ -20,7 +20,7 @@ public class ShopListener implements Listener {
         if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
                 || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
             if(event.getClickedInventory()!=null
-                    && event.getClickedInventory().getTitle().equalsIgnoreCase(Main.getInstance().getConfigurationManager().getShop().getString("Heads.InventoryName"))) {
+                    && event.getClickedInventory().getTitle().equalsIgnoreCase(AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getShop().getString("Heads.InventoryName")))) {
                 if(event.getCurrentItem() != null
                         && event.getCurrentItem().hasItemMeta()
                             && event.getCurrentItem().getItemMeta().hasDisplayName()){
@@ -32,14 +32,14 @@ public class ShopListener implements Listener {
                         player.getInventory().setHelmet(null);
                         player.closeInventory();
                         if(language.getString("Shop.Heads.Deactivated") != null)
-                            Main.getInstance().getNmsHandler().getChatapi().sendActionbar(player, language.getString("Shop.Heads.Deactivated"));
+                            Main.getInstance().getNmsHandler().getChatapi().sendActionbar(player, AEStringBuilder.replaceDefaults(language.getString("Shop.Heads.Deactivated")));
                     }else{
                         String head = event.getCurrentItem().getItemMeta().getDisplayName();
                         if(player.hasPermission("lobby.heads.all") || player.hasPermission("lobby.heads." + HeadList.getShortcut(head))){
                             player.getInventory().setHelmet(event.getCurrentItem());
                             player.closeInventory();
                             if(language.getString("Shop.Heads.Activated") != null) {
-                                String msg = language.getString("Shop.Heads.Activated").replace("%name", HeadList.getShortcut(head).toUpperCase());
+                                String msg = AEStringBuilder.replaceDefaults(language.getString("Shop.Heads.Activated").replace("%name", head));
                                 Main.getInstance().getNmsHandler().getChatapi().sendActionbar(player, msg);
                             }
                         }
@@ -54,7 +54,7 @@ public class ShopListener implements Listener {
         Player player = (Player) event.getWhoClicked();
         if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
                 || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
-            if(event.getClickedInventory()!=null && event.getClickedInventory().getTitle().equalsIgnoreCase(Main.getInstance().getConfigurationManager().getShop().getString("Particles.InventoryName"))) {
+            if(event.getClickedInventory()!=null && event.getClickedInventory().getTitle().equalsIgnoreCase(AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getShop().getString("Particles.InventoryName")))) {
                 if(event.getCurrentItem() != null && event.getCurrentItem().hasItemMeta() && event.getCurrentItem().getItemMeta().hasDisplayName()){
                     event.setCancelled(true);
                     Configuration language = Main.getInstance().getConfigurationManager().getLanguage();
@@ -69,7 +69,7 @@ public class ShopListener implements Listener {
                             Main.getInstance().getNmsHandler().getParticlelauncher().getParticles().remove(player);
                         }
                         if(language.getString("Shop.Particles.Deactivated") != null)
-                            Main.getInstance().getNmsHandler().getChatapi().sendActionbar(player, language.getString("Shop.Particles.Deactivated"));
+                            Main.getInstance().getNmsHandler().getChatapi().sendActionbar(player, AEStringBuilder.replaceDefaults(language.getString("Shop.Particles.Deactivated")));
                         player.closeInventory();
                     }else{
                         String pat = event.getCurrentItem().getItemMeta().getDisplayName();
@@ -81,7 +81,7 @@ public class ShopListener implements Listener {
                                     Main.getInstance().getNmsHandler().getParticlelauncher().launch(player, Main.getInstance(), player.getWorld());
                                 }
                                 if(language.getString("Shop.Particles.Activated") != null) {
-                                    String msg = language.getString("Shop.Particles.Activated").replace("%name", Main.getInstance().getNmsHandler().getParticlelist().getShortcut(pat).toUpperCase());
+                                    String msg = AEStringBuilder.replaceDefaults(language.getString("Shop.Particles.Activated")).replace("%name", Main.getInstance().getNmsHandler().getParticlelist().getShortcut(pat).toUpperCase());
                                     Main.getInstance().getNmsHandler().getChatapi().sendActionbar(player, msg);
                                 }
                                 player.closeInventory();
@@ -99,7 +99,7 @@ public class ShopListener implements Listener {
         if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
                 || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
             Configuration language = Main.getInstance().getConfigurationManager().getLanguage();
-            if(event.getClickedInventory()!=null && event.getClickedInventory().getTitle().equalsIgnoreCase(language.getString("Shop.InventoryName"))) {
+            if(event.getClickedInventory()!=null && event.getClickedInventory().getTitle().equalsIgnoreCase(AEStringBuilder.replaceDefaults(language.getString("Shop.InventoryName")))) {
                 if(event.getCurrentItem()!=null && event.getCurrentItem().hasItemMeta() && event.getCurrentItem().getItemMeta().hasDisplayName()) {
                     event.setCancelled(true);
                     if(event.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase(AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getShop().getString("Particles.ItemName")))) {

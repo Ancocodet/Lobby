@@ -58,7 +58,8 @@ public class PlayerManager {
     }
 
     public LobbyPlayer getLobbyPlayer(Player player){
-        initPlayer(player);
+        if(!lobbyPlayer.containsKey(player))
+            lobbyPlayer.put(player, new LobbyPlayer(player));
         return lobbyPlayer.get(player);
     }
 }

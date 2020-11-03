@@ -4,6 +4,7 @@ import de.ancozockt.lobby.Main;
 import de.ancozockt.lobby.inventorys.hotbar.LobbyItem;
 import de.ancozockt.lobby.inventorys.hotbar.LobbyItemRole;
 import de.ancozockt.lobby.inventorys.settings.Settings;
+import de.ancozockt.lobby.utilitys.background.AEStringBuilder;
 import de.ancozockt.utility.configurations.interfaces.Configuration;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -55,13 +56,13 @@ public class HotbarListener implements Listener {
                         event.setCancelled(true);
                         if(!player.hasPermission("lobby.youtuber") && !player.hasPermission("lobby.admin") && !player.hasPermission("lobby.silentlobby") ){
                             if(language.getString("Messages.Silentlobby.Error") != null){
-                                player.sendMessage(Main.getInstance().getStringManager().getPrefix() + language.getString("Messages.Silentlobby.Error").replace("%n", Main.getInstance().getStringManager().getNormal()));
+                                player.sendMessage(AEStringBuilder.buildMessage(language.getString("Messages.Silentlobby.Error")).replace("%n", Main.getInstance().getStringManager().getNormal()));
                             }
                         }else{
                             if(Main.getInstance().getPlayerManager().getSilentLobby().contains(player)){
                                 Main.getInstance().getPlayerManager().leaveSilentLobby(player);
                                 if(language.getString("Messages.Silentlobby.Leave") != null){
-                                    player.sendMessage(Main.getInstance().getStringManager().getPrefix() + language.getString("Messages.Silentlobby.Leave").replace("%n", Main.getInstance().getStringManager().getNormal()));
+                                    player.sendMessage(AEStringBuilder.buildMessage(language.getString("Messages.Silentlobby.Leave")).replace("%n", Main.getInstance().getStringManager().getNormal()));
                                 }
                                 Settings.vanishPlayers(player);
                                 for(Player all : Bukkit.getOnlinePlayers()){
@@ -70,7 +71,7 @@ public class HotbarListener implements Listener {
                             }else{
                                 Main.getInstance().getPlayerManager().joinSilentLobby(player);
                                 if(language.getString("Messages.Silentlobby.Join") != null){
-                                    player.sendMessage(Main.getInstance().getStringManager().getPrefix() + language.getString("Messages.Silentlobby.Join").replace("%n", Main.getInstance().getStringManager().getNormal()));
+                                    player.sendMessage(AEStringBuilder.buildMessage(language.getString("Messages.Silentlobby.Join")).replace("%n", Main.getInstance().getStringManager().getNormal()));
                                 }
                                 for(Player all : Bukkit.getOnlinePlayers()){
                                     player.hidePlayer(all);

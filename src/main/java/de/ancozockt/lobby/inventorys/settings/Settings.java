@@ -27,7 +27,7 @@ public class Settings {
             }else{
                 hider.setItem(12, Items.getInstance().getItem(Material.STAINED_GLASS ,1, 5, AEStringBuilder.replaceDefaults(language.getString("Settings.Vanisher.All.Name")), AEStringBuilder.replaceDefaults(language.getString("Settings.Vanisher.All.Lore"))));
             }
-            if(lobbyPlayer.getVanish() == Vanish.NONE){
+            if(lobbyPlayer.getVanish() == Vanish.PREMIUM){
                 hider.setItem(13, Items.getInstance().getItem(Material.STAINED_CLAY, 1, 4, AEStringBuilder.replaceDefaults(language.getString("Settings.Vanisher.Premium.Name")), AEStringBuilder.replaceDefaults(language.getString("Settings.Vanisher.Premium.Lore"))));
             }else{
                 hider.setItem(13, Items.getInstance().getItem(Material.STAINED_GLASS, 1, 4, AEStringBuilder.replaceDefaults(language.getString("Settings.Vanisher.Premium.Name")), AEStringBuilder.replaceDefaults(language.getString("Settings.Vanisher.Premium.Lore"))));

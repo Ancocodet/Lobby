@@ -13,24 +13,24 @@ public class HeadList {
     public HeadList(){
         Configuration shop = Main.getInstance().getConfigurationManager().getShop();
 
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Melon.Name")), "melon");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Glas.Name")), "glas");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Emerald.Name")), "emerald");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Diamond.Name")), "diamond");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Lapis.Name")), "lapis");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Gold.Name")), "gold");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Hay.Name")), "hay");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Ice.Name")), "ice");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Obsidian.Name")), "obsidian");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Sponge.Name")), "sponge");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Bookshelf.Name")), "bookshelf");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Prismarine.Name")), "prismarine");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Endstone.Name")), "endstone");
-        shortcuts.put(AEStringBuilder.replaceDefaults(shop.getString("Heads.Gras.Name")), "gras");
+        shortcuts.put(shop.getString("Heads.Melon.Name"), "melon");
+        shortcuts.put(shop.getString("Heads.Glas.Name"), "glas");
+        shortcuts.put(shop.getString("Heads.Emerald.Name"), "emerald");
+        shortcuts.put(shop.getString("Heads.Diamond.Name"), "diamond");
+        shortcuts.put(shop.getString("Heads.Lapis.Name"), "lapis");
+        shortcuts.put(shop.getString("Heads.Gold.Name"), "gold");
+        shortcuts.put(shop.getString("Heads.Hay.Name"), "hay");
+        shortcuts.put(shop.getString("Heads.Ice.Name"), "ice");
+        shortcuts.put(shop.getString("Heads.Obsidian.Name"), "obsidian");
+        shortcuts.put(shop.getString("Heads.Sponge.Name"), "sponge");
+        shortcuts.put(shop.getString("Heads.Bookshelf.Name"), "bookshelf");
+        shortcuts.put(shop.getString("Heads.Prismarine.Name"), "prismarine");
+        shortcuts.put(shop.getString("Heads.Endstone.Name"), "endstone");
+        shortcuts.put(shop.getString("Heads.Gras.Name"), "gras");
     }
 
     public static String getShortcut(String name){
-        if(shortcuts.get(name) != null)
+        if(shortcuts.containsKey(name))
             return shortcuts.get(name);
 
         return null;

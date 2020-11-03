@@ -18,13 +18,13 @@ public class NavPositionSetup {
     public static void openPositionSetup(Player player, NavGameItem gameItem, int position){
         Inventory inv = Bukkit.createInventory(null, Main.getInstance().getInventoryManager().getNavConfig().getRows() * 9, "§cSetUp §8| §c#" + position);
 
-        for(int items : Main.getInstance().getInventoryManager().getNavigator().getItems().keySet()){
+        for(int items : Main.getInstance().getInventoryManager().getNavConfig().getItems().keySet()){
             if(items != position){
                 inv.setItem(items, Items.getInstance().getItem(Material.BARRIER, 1,0, "§7*-*", ""));
             }
         }
 
-        for(int games : Main.getInstance().getInventoryManager().getNavigator().getGames().keySet()){
+        for(int games : Main.getInstance().getInventoryManager().getNavConfig().getGames().keySet()){
             if(games != position){
                 inv.setItem(games, Items.getInstance().getItem(Material.BARRIER, 1,0, "§7*-*", ""));
             }
@@ -43,13 +43,13 @@ public class NavPositionSetup {
     public static void openPositionSetup(Player player, NavItem navItem, int position){
         Inventory inv = Bukkit.createInventory(null, Main.getInstance().getInventoryManager().getNavConfig().getRows() * 9, "§cSetUp §8| §c#" + position);
 
-        for(int items : Main.getInstance().getInventoryManager().getNavigator().getItems().keySet()){
+        for(int items : Main.getInstance().getInventoryManager().getNavConfig().getItems().keySet()){
             if(items != position){
                 inv.setItem(items, Items.getInstance().getItem(Material.BARRIER, 1,0, "§7*-*", ""));
             }
         }
 
-        for(int games : Main.getInstance().getInventoryManager().getNavigator().getItems().keySet()){
+        for(int games : Main.getInstance().getInventoryManager().getNavConfig().getGames().keySet()){
             if(games != position){
                 inv.setItem(games, Items.getInstance().getItem(Material.BARRIER, 1,0, "§7*-*", ""));
             }

@@ -4,6 +4,7 @@ import de.ancozockt.lobby.Main;
 import de.ancozockt.lobby.inventorys.settings.Settings;
 import de.ancozockt.lobby.inventorys.settings.enums.Shield;
 import de.ancozockt.lobby.inventorys.settings.enums.Vanish;
+import de.ancozockt.lobby.utilitys.background.AEStringBuilder;
 import de.ancozockt.lobby.utilitys.background.LobbyPlayer;
 import de.ancozockt.utility.configurations.interfaces.Configuration;
 import org.bukkit.Bukkit;
@@ -22,7 +23,7 @@ public class InventoryListener implements Listener {
         if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord")
                 || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
             Configuration language = Main.getInstance().getConfigurationManager().getLanguage();
-            if(event.getClickedInventory()!=null && event.getClickedInventory().getTitle().equalsIgnoreCase(language.getString("Settings.InventoryName"))) {
+            if(event.getClickedInventory()!=null && event.getClickedInventory().getTitle().equalsIgnoreCase(AEStringBuilder.replaceDefaults(language.getString("Settings.InventoryName")))) {
                 if(event.getCurrentItem()!=null && event.getCurrentItem().hasItemMeta() && event.getCurrentItem().getItemMeta().hasDisplayName()){
                     event.setCancelled(true);
                     if(event.getSlot() > 11 && event.getSlot() < 16) {
@@ -34,7 +35,7 @@ public class InventoryListener implements Listener {
                         } else if (event.getSlot() == 14) {
                             lobbyPlayer.setVanish(Vanish.INFLUENCER);
                         } else if (event.getSlot() == 15) {
-                            lobbyPlayer.setVanish(Vanish.INFLUENCER);
+                            lobbyPlayer.setVanish(Vanish.NONE);
                         }
                         Settings.vanishPlayers(player);
                         Settings.openSettings(player);
