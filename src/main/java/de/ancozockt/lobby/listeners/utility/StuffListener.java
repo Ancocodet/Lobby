@@ -144,7 +144,12 @@ public class StuffListener implements Listener {
     public void onWeather(WeatherChangeEvent event) {
         if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord")
                 || event.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("General.World"))){
-            event.setCancelled(true);
+            if(event.getWorld().isThundering() || event.getWorld().hasStorm()) {
+                event.getWorld().setStorm(false);
+                event.getWorld().setThundering(false);
+            }else{
+                event.setCancelled(true);
+            }
         }
     }
 

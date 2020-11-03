@@ -40,7 +40,7 @@ public class ShieldHandler {
         runnable = new BukkitRunnable() {
             @Override
             public void run() {
-                if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("BungeeCord") || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("World"))){
+                if(Main.getInstance().getConfigurationManager().getConfiguration().getBoolean("General.BungeeCord") || player.getWorld() == Bukkit.getWorld(Main.getInstance().getConfigurationManager().getConfiguration().getString("General.World"))){
                     double radius = 2;
                     for (double o = 0; o < radius * Math.PI; o+=0.22){
                         player.getWorld().playEffect(player.getLocation().add(radius*Math.cos(o), +1, radius * Math.sin(o)), Effect.COLOURED_DUST, 1);

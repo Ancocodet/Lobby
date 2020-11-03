@@ -57,7 +57,7 @@ public class JoinListener implements Listener {
             }else{
                 LobbyPlayer lobbyPlayer = Main.getInstance().getPlayerManager().getLobbyPlayer(player);
 
-                lobbyPlayer.setShield(Shield.NONE);
+                lobbyPlayer.setShield(Shield.ALL);
                 lobbyPlayer.setVanish(Vanish.ALL);
 
                 for(Player all : Bukkit.getOnlinePlayers()){
