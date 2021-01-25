@@ -1,0 +1,3 @@
+name: Jumppad
+version: @version@
+main: de.ancozockt.addons.jumppad.Main

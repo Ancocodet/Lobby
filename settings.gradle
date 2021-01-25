@@ -1,0 +1,3 @@
+rootProject.name = 'lobby-project'
+include 'main'
+include 'jumppadaddon'
