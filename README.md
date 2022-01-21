@@ -10,4 +10,9 @@ bugs.
 - Beautified and Cleaned Configuration Files
 - Updated Player Initialization (Shields deactivated by default)
 
+The repo is cloned to GitHub and originally hosted on GitLab.
+
+[GitHub](https://github.com/Ancocodet/Lobby)
+[GitLab](https://gitlab.com/ancozocktenvironment/lobby)
+
 **Before you commit please read our contributing rules.**
