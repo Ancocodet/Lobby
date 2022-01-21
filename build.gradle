@@ -1,10 +1,12 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
     id 'java'
     id 'java-library'
 }
 
 group 'de.ancozockt'
-version '1.4.5'
+version '1.5'
 
 sourceCompatibility = 1.8
 compileJava.options.encoding = 'UTF-8'
@@ -18,26 +20,30 @@ repositories {
 }
 
 dependencies {
-    compile "de.ancozockt:aeutility:0.4.6"
-    compile "de.ancozockt:aenmsutility:0.0.3"
+    api "de.ancozockt:aeutility:0.4.6"
+    api "de.ancozockt:aenmsutility:0.0.3"
 
     compileOnly fileTree(include: ['*jar'], dir: 'libs')
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
 
-    testCompileOnly 'junit:junit:4.12'
-    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.3.1'
+    testCompileOnly fileTree(include: ['*jar'], dir: 'libs')
+    testRuntimeOnly fileTree(include: ['*jar'], dir: 'libs')
 
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+
+    testCompileOnly 'junit:junit:4.13.2'
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.8.2'
 }
 
 jar {
+    archiveName 'Lobby-' + getArchiveVersion() + '.jar'
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
     }
 }
 
-import org.apache.tools.ant.filters.ReplaceTokens
-
 processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     from(sourceSets.main.resources.srcDirs) {
         filter ReplaceTokens, tokens: [version: version]
     }

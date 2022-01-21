@@ -4,10 +4,12 @@ import de.ancozockt.utility.database.FileManager;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 public class DefaultBuilder {
 
-    public static Charset UTF8_CHARSET = Charset.forName("UTF-8");
+    public static Charset UTF8_CHARSET = StandardCharsets.UTF_8;
 
     public File createTempFile(String filename, String tempFileName, FileManager manager){
         InputStream inputStream =  this.getClass().getClassLoader().getResourceAsStream(filename);
@@ -21,7 +23,7 @@ public class DefaultBuilder {
 
         try (FileOutputStream outputStream = new FileOutputStream(file)) {
             PrintWriter pw = new PrintWriter(outputStream);
-            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, UTF8_CHARSET));
+            BufferedReader br = new BufferedReader(new InputStreamReader(Objects.requireNonNull(inputStream), UTF8_CHARSET));
 
             String readLine = null;
             while ((readLine = br.readLine()) != null) {

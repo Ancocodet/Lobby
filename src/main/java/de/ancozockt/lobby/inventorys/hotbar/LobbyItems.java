@@ -121,7 +121,7 @@ public class LobbyItems {
         for(LobbyItemRole itemRole : LobbyItemRole.values()){
             String itemName = itemRole.toString();
 
-            String displayname = AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getHotbar().getString("Default.Items."+itemName+".Name"));
+            String displayName = AEStringBuilder.replaceDefaults(Main.getInstance().getConfigurationManager().getHotbar().getString("Default.Items."+itemName+".Name"));
             String item = Main.getInstance().getConfigurationManager().getHotbar().getString("Default.Items."+itemName+".Item");
 
             int position = Main.getInstance().getConfigurationManager().getHotbar().getInteger("Default.Items."+itemName+".Position") - 1;
@@ -131,7 +131,7 @@ public class LobbyItems {
                 enabled = false;
             }
 
-            LobbyItem lobbyItem = new LobbyItem(itemName, displayname, item, position, enabled);
+            LobbyItem lobbyItem = new LobbyItem(itemName, displayName, item, position, enabled);
             defaultVersion.add(lobbyItem);
             displayNamesDefault.put(itemRole, lobbyItem);
         }

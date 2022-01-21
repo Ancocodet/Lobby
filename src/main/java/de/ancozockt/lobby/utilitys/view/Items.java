@@ -12,6 +12,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Items implements IItems {
@@ -31,7 +33,7 @@ public class Items implements IItems {
         if(lore.contains(",")){
             meta.setLore(Arrays.asList(lore.split(",")));
         }else{
-            meta.setLore(Arrays.asList(new String[] { lore }));
+            meta.setLore(Collections.singletonList(lore));
         }
         is.setItemMeta(meta);
         return is;
@@ -46,7 +48,7 @@ public class Items implements IItems {
         if(lore.contains(",")){
             meta.setLore(Arrays.asList(lore.split(",")));
         }else{
-            meta.setLore(Arrays.asList(new String[] { lore }));
+            meta.setLore(Collections.singletonList(lore));
         }
         item.setItemMeta(meta);
         return item;
@@ -60,7 +62,7 @@ public class Items implements IItems {
         if(lore.contains(",")){
             im.setLore(Arrays.asList(lore.split(",")));
         }else{
-            im.setLore(Arrays.asList(new String[] { lore }));
+            im.setLore(Collections.singletonList(lore));
         }
 
         if (vrz) {
@@ -86,7 +88,7 @@ public class Items implements IItems {
         try {
             profileField = headMeta.getClass().getDeclaredField("profile");
         } catch (NoSuchFieldException | SecurityException ignored) { }
-        profileField.setAccessible(true);
+        Objects.requireNonNull(profileField).setAccessible(true);
         try {
             profileField.set(headMeta, profile);
         } catch (IllegalArgumentException | IllegalAccessException ignored) { }
@@ -95,7 +97,7 @@ public class Items implements IItems {
         if(lore.contains(",")){
             headMeta.setLore(Arrays.asList(lore.split(",")));
         }else{
-            headMeta.setLore(Arrays.asList(new String[] { lore }));
+            headMeta.setLore(Collections.singletonList(lore));
         }
 
         if (ench) {
