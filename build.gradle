@@ -35,7 +35,7 @@ dependencies {
 }
 
 jar {
-    archiveName 'Lobby-' + getArchiveVersion() + '.jar'
+    archiveName 'Lobby-' + version + '.jar'
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
     from {
         configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
