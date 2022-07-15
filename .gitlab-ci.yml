@@ -1,5 +1,3 @@
-image: gradle:alpine
-
 variables:
   GRADLE_OPTS: "-Dorg.gradle.daemon=false"
 
@@ -7,6 +5,7 @@ before_script:
   - export GRADLE_USER_HOME=`pwd`/.gradle
 
 build:
+  image: gradle:alpine
   stage: build
   script: gradle --build-cache assemble
   cache:
@@ -17,6 +16,7 @@ build:
       - .gradle
 
 test:
+  image: gradle:alpine
   stage: test
   script: gradle check
   cache:
