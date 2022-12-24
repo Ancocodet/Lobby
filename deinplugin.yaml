@@ -3,7 +3,7 @@ type: plugin
 name: Lobby
 authors:
   - Ancozockt
-supportedGameVersions: 1.8-1.12
+supportedGameVersions: 1.8 - 1.12
 supportedPlatforms:
   - spigot
   - paper
@@ -70,3 +70,12 @@ description:
       | /addons      | lobby.addons      | List of all currently loaded addons |
 
       * Im Weltmodus sind sämtliche befehle mit /lobby <befehl> registriert.
+installation:
+  de: |
+    - Herunterladen der Plugin-Datei
+    - Ablegen der Datei im Plugins-Ordner
+    - Server neustarten
+  en: |
+    - Download the plugin-file
+    - Put the file into your plugins-folder
+    - Restart your server
