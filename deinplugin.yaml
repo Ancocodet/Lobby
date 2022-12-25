@@ -2,7 +2,7 @@ specVersion: 1
 type: plugin
 name: Lobby
 authors:
-  - Ancozockt
+  - Ancocodet
 supportedGameVersions: 1.8-1.12
 supportedPlatforms:
   - spigot
