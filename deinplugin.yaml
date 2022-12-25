@@ -17,59 +17,59 @@ download:
   url: https://ancozockt.de/en/plugin/download/2/latest
   name: Official Download
 introduction: 
-  - de: Ein Lobby System für Netzwerke sowie alleinstehende Server
-  - en: A Lobby System for Networks and standalone Servers
+  de: Ein Lobby System für Netzwerke sowie alleinstehende Server
+  en: A Lobby System for Networks and standalone Servers
 description:
-  - de: |
-      # Überblick
-      Das Lobby-Plugin übernimmt die Funktionen, die ein Spawn/Hub benötigt. 
-      Durch das Lobby-Plugin wird sichergestellt, dass der Spieler nichts verändert oder zerstört.
-      Durch Addons lassen sich weitere Funktionen hinzufügen. 
-      In der Konfiguration kann man außerdem zwischen einer Netzwerk-Lobby oder einer Welt-Lobby wählen.
-      Das Setup ist weitesgehend über ein Inventar im Spiel möglich.
+  de: |
+    # Überblick
+    Das Lobby-Plugin übernimmt die Funktionen, die ein Spawn/Hub benötigt. 
+    Durch das Lobby-Plugin wird sichergestellt, dass der Spieler nichts verändert oder zerstört.
+    Durch Addons lassen sich weitere Funktionen hinzufügen. 
+    In der Konfiguration kann man außerdem zwischen einer Netzwerk-Lobby oder einer Welt-Lobby wählen.
+    Das Setup ist weitesgehend über ein Inventar im Spiel möglich.
 
-      # Funktionen
-      * Extras [Köpfe + Partikel]
-      * Navigator
-      * Multiworld support
-      * Addon System
+    # Funktionen
+    * Extras [Köpfe + Partikel]
+    * Navigator
+    * Multiworld support
+    * Addon System
 
-      # Befehle
-      | Befehl*      | Berechtigung      | Beschreibung                            |
-      |--------------|-------------------|-----------------------------------------|
-      | /setwarp     | lobby.setwarp     | Erstellt einen Warppunkt                |
-      | /delwarp     | lobby.delwarp     | Entfernt einen Warppunkt                |
-      | /warp        |                   | Teleportiert dich zu einem Warppunkt    |
-      | /loadchanges | lobby.loadchanges | Lädt alle Konfigurationen neu           |
-      | /setup       | lobby.setup       | Öffnet das Setup Menü                   |
-      | /addons      | lobby.addons      | Listet die derzeit geladenen Addons auf |
+    # Befehle
+    | Befehl*      | Berechtigung      | Beschreibung                            |
+    |--------------|-------------------|-----------------------------------------|
+    | /setwarp     | lobby.setwarp     | Erstellt einen Warppunkt                |
+    | /delwarp     | lobby.delwarp     | Entfernt einen Warppunkt                |
+    | /warp        |                   | Teleportiert dich zu einem Warppunkt    |
+    | /loadchanges | lobby.loadchanges | Lädt alle Konfigurationen neu           |
+    | /setup       | lobby.setup       | Öffnet das Setup Menü                   |
+    | /addons      | lobby.addons      | Listet die derzeit geladenen Addons auf |
 
-      \* Im Weltmodus sind sämtliche befehle mit `/lobby <befehl>` registriert.
-  - en: |
-      # Overview
-      Our Lobby-Plugin takes over every function which is needed for a spawn/hub.
-      It provides safety, that no players can break or destroy anything. 
-      With the use of our addon system, other functions can be added.
-      In our configuration, you can switch between a network-lobby or a world-lobby. 
-      The setup can be done via an in-game inventory.
+    \* Im Weltmodus sind sämtliche befehle mit `/lobby <befehl>` registriert.
+  en: |
+    # Overview
+    Our Lobby-Plugin takes over every function which is needed for a spawn/hub.
+    It provides safety, that no players can break or destroy anything. 
+    With the use of our addon system, other functions can be added.
+    In our configuration, you can switch between a network-lobby or a world-lobby. 
+    The setup can be done via an in-game inventory.
 
-      # Features
-      * Extras [Heads & Particles]
-      * Navigator
-      * Multiworld support
-      * Addon System
+    # Features
+    * Extras [Heads & Particles]
+    * Navigator
+    * Multiworld support
+    * Addon System
 
-      # Commands
-      | Command*     | Permission        | Description                         |
-      |--------------|-------------------|-------------------------------------|
-      | /setwarp     | lobby.setwarp     | Creates a warp point                |
-      | /delwarp     | lobby.delwarp     | Deletes a warp point                |
-      | /warp        |                   | Teleports yourself to a warp point  |
-      | /loadchanges | lobby.loadchanges | Reloads all configurations          |
-      | /setup       | lobby.setup       | Opens the setup menu                |
-      | /addons      | lobby.addons      | List of all currently loaded addons |
+    # Commands
+    | Command*     | Permission        | Description                         |
+    |--------------|-------------------|-------------------------------------|
+    | /setwarp     | lobby.setwarp     | Creates a warp point                |
+    | /delwarp     | lobby.delwarp     | Deletes a warp point                |
+    | /warp        |                   | Teleports yourself to a warp point  |
+    | /loadchanges | lobby.loadchanges | Reloads all configurations          |
+    | /setup       | lobby.setup       | Opens the setup menu                |
+    | /addons      | lobby.addons      | List of all currently loaded addons |
 
-      \* In worldmode all commands are registered like `/lobby <command>` /lobby <befehl>.
+    \* In worldmode all commands are registered like `/lobby <command>` /lobby <befehl>.
 installation:
   de: |
     - Herunterladen der Plugin-Datei
