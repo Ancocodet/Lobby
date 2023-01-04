@@ -15,7 +15,7 @@ repositories {
     mavenCentral()
     maven {
         name = 'Ancozockt'
-        url = 'https://mymavenrepo.com/repo/QUxdTjRBmxIqmVZj9wqE/'
+        url = 'https://repo.ancozockt.info/releases'
     }
 }
 
