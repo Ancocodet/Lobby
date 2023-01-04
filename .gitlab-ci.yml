@@ -4,7 +4,13 @@ variables:
 before_script:
   - export GRADLE_USER_HOME=`pwd`/.gradle
 
+stages:
+  - test
+  - build
+
 build:
+  needs:
+    - test
   image: gradle:alpine
   stage: build
   script: gradle --build-cache assemble
